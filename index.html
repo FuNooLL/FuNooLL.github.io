@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="css/index.css">
+  <title>Graphs</title>
+</head>
+
+<body>
+  <header>
+    <h2>Проект-для-МАН</h2>
+    <nav>
+      <button class="mono-btn">Run</button>
+      <button class="mono-btn">Toggle</button>
+      <button class="mono-btn">Menu</button>
+      <!-- <button class="mono-btn" onclick="window.open('contactme.html', '_blank')">About</button> !-->
+    </nav>
+  </header>
+  
+  <div class="panel" role="navigation" aria-label="Menu" style="right: 0px; top: 0px;">
+    <div class="panel__list" tabindex="0">
+      <button class="mono-btn" type="button">
+        <div class="mono-btn__icon">□</div>
+        <span class="mono-btn__label">Clear</span>
+      </button>
+      
+      <button class="mono-btn" type="button">
+        <div class="mono-btn__icon">#</div>
+        <span class="mono-btn__label">Toggle table</span>
+      </button>
+      
+      <button class="mono-btn" type="button" onclick="window.open('contactme.html', '_blank')">
+        <div class="mono-btn__icon">?</div>
+        <span class="mono-btn__label">About</span>
+      </button>
+      
+
+    </div>
+  </div>
+  
+  <div class="table-container" id="table-container">
+    <table id="excel-table">
+      <thead>
+        <tr>
+          <th></th> <!-- Hollow cell is in top-left -->
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr>
+          <td class="row-header">Path length</td>
+        </tr>
+        
+        <tr>
+          <td class="row-header">From</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <canvas>
+  </canvas>
+  
+  <div class="panel" role="navigation" aria-label="Menu">
+    <div class="panel__list" tabindex="0">
+      <button class="mono-btn" type="button">
+        <div class="mono-btn__icon" style="background-color: #3ffa06"></div>
+        <span class="mono-btn__label">Set as start point</span>
+      </button>
+      
+      <button class="mono-btn" type="button">
+        <div class="mono-btn__icon" style="background-color: #fd0707"></div>
+        <span class="mono-btn__label">Set as end point</span>
+      </button>
+      
+      <button class="mono-btn" type="button">
+        <div class="mono-btn__icon">+</div>
+        <span class="mono-btn__label">Add node</span>
+      </button>
+      
+      <button class="mono-btn" type="button">
+        <div class="mono-btn__icon">-</div>
+        <span class="mono-btn__label">Delete node</span>
+      </button>
+      
+      <button class="mono-btn" type="button">
+        <div class="mono-btn__icon">×</div>
+        <span class="mono-btn__label">Start edge</span>
+      </button>
+      
+      <button class="mono-btn" type="button">
+        <div class="mono-btn__icon">•</div>
+        <span class="mono-btn__label">Delete edge from</span>
+      </button>
+    </div>
+  </div>
+  
+  
+  <input type="number" class="quantity" name="quantity" min="0" max="120" step="1" placeholder="0<Weight<100" inputmode="numeric" />
+  
+  <script src="js/index.js"></script>
+</body>
+
+</html>
