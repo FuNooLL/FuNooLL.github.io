@@ -389,7 +389,7 @@
       }
       
       let temp1, temp2;
-      node.edges.sort((a, b) => a.weight - b.weight);
+      node.edges.sort((a, b) => b.weight - a.weight);
       for (let edge1 of node.edges) {
         if (edge1.direction === node) continue;
         if (path.find(e => e[0] === edge1.direction)) continue;
@@ -434,8 +434,7 @@
   }
   
   function tableAddColumn(name) {
-    //let isInEnd = (table.scrollWidth - table.scrollLeft);
-    //console.log(table.scrollWidth, table.scrollLeft);
+    const isInEnd = table.scrollLeft >= (table.scrollWidth - table.clientWidth - 5);
     const header = table.querySelector('thead tr');
     const rows = table.querySelectorAll('tbody tr');
     const colCount = header.children.length;
@@ -446,7 +445,7 @@
     rows.forEach(row => {
       row.insertAdjacentHTML('beforeend', '<td></td>');
     });
-    //if (isInEnd < 5) table.scrollLeft = table.scrollWidth;
+    if (isInEnd) table.scrollLeft = table.scrollWidth;
   }
   
   function tableDeleteColumn() {
