@@ -20,7 +20,7 @@
     endNodeColor    : "rgba(235, 10, 10, 1)",
     headerHeight      : 40,
     nodeRadius      : null,    // radius value by certain w and h
-    totalNodeCount  : 6,
+    totalNodeCount  : 15,
     nodeCount       : 0,
     middleEdgeLegth : null,   // value by certain w and h
     maxNodeVelocity : 1.2,
@@ -434,6 +434,8 @@
   }
   
   function tableAddColumn(name) {
+    //let isInEnd = (table.scrollWidth - table.scrollLeft);
+    //console.log(table.scrollWidth, table.scrollLeft);
     const header = table.querySelector('thead tr');
     const rows = table.querySelectorAll('tbody tr');
     const colCount = header.children.length;
@@ -444,7 +446,7 @@
     rows.forEach(row => {
       row.insertAdjacentHTML('beforeend', '<td></td>');
     });
-    table.scrollLeft = table.scrollWidth;
+    //if (isInEnd < 5) table.scrollLeft = table.scrollWidth;
   }
   
   function tableDeleteColumn() {
@@ -508,7 +510,7 @@
   function activateInput(func) {
     func1 = func;
     input.hidden = false;
-    input.style.left = ""+pointer.selectedItem.x+"px";
+    input.style.left = ""+((pointer.selectedItem.x+input.offsetWidth) < w ? pointer.selectedItem.x : pointer.selectedItem.x-input.offsetWidth)+"px";
     input.style.top = ""+(pointer.selectedItem.y+config.headerHeight)+"px";
   }
   function disactivateInput() {
@@ -668,7 +670,7 @@
       nodes.push(node);
       config.nodeCount++;
       if (isNaN(value)) return;
-      Edge._new(selected, node, value);
+      Edge._new(selected, node, Math.min(Math.max(value/100, 0), 1));
     })
   }); // Add node
   btnsP[3].addEventListener("click", () => {
